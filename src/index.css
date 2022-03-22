@@ -11,3 +11,109 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.App {
+  margin: 0px;
+  padding: 0px
+}
+
+main { 
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: stretch;
+  align-content: stretch;
+}
+
+.Prjmanager {
+  display: block;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  order: 0;
+  margin: 0px 1px;
+}
+
+/* NAVBAR MENU */
+
+.header {
+  background-color: #193044;
+  color: white;
+  margin: 0px;
+  padding: 10px;
+}
+.header h3 {
+  margin: 4px 2px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 2px;
+}
+.header  h5 {
+  margin: 2px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  letter-spacing: 1px;
+}
+
+.nav {
+  align-self: auto;
+  min-width: 170px;
+  background-color: #193044;
+  color: white;
+  display: block;
+  height: 100vh;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  order: 0;
+}
+
+.list {
+  margin-top: 0px;
+  padding: 30px;
+  
+  list-style: none;
+}
+
+.list-item{
+  padding: 5px;
+  overflow: hidden;
+}
+
+.list-item a {
+  color: white;
+  text-decoration: none;
+  padding-bottom: 3px;
+}
+
+.list-item a:hover {
+  color: orange;
+  border-bottom: 1px solid orange;
+  transition: 0.2s;
+}
+
+.subnav:hover {
+  cursor: pointer;
+}
+
+.submenu{
+  /* display:none */
+  list-style: none;
+  height: 0px;
+  transition: height .2s;
+}
+.submenu .list-item {
+  margin-left: -10px;
+}
+
+.flecha {
+  transition: transform .2s;
+  margin-left: 15px;
+  display: inline-block;
+
+}
+.arrow .flecha {
+  transform: rotate(90deg); 
+}
+.desplegar {
+  height: 60px;  
+}
