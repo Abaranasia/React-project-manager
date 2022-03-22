@@ -11,7 +11,7 @@ function App() {
       <BrowserRouter basename="/">
         <main>
           <NavBar />
-          <div className="Prjmanager">
+          <div className="contents">
             <Router />
           </div>
         </main>

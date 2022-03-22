@@ -43,9 +43,9 @@ export const projects = [
     desc: "Field Inspection mobile application",
     type: "PARM application",
     owner: "Jesús Ponce",
-    create_date: "10/05/2021",
-    start_date: "10/05/2021",
-    end_date: "20/02/2022",
+    create_date: "05/10/2021",
+    start_date: "05/10/2021",
+    end_date: "02/20/2022",
     completed: false,
     resources: [
       {
@@ -71,9 +71,9 @@ export const projects = [
     desc: "login and sing on application",
     type: "FARM application",
     owner: "Gorik Davits",
-    create_date: "10/12/2021",
-    start_date: "10/12/2021",
-    end_date: "20/02/2022",
+    create_date: "12/12/2021",
+    start_date: "12/12/2021",
+    end_date: "02/20/2022",
     completed: true,
     resources: [
       {
@@ -99,9 +99,9 @@ export const projects = [
     desc: "Analysis and management application",
     type: "PARM application",
     owner: "Gorik Davits",
-    create_date: "10/09/2019",
-    start_date: "10/09/2019",
-    end_date: "20/08/2023",
+    create_date: "10/10/2019",
+    start_date: "10/10/2019",
+    end_date: "08/20/2023",
     completed: true,
     resources: [
       {
@@ -122,9 +122,9 @@ export const projects = [
     desc: "Training project for student trainees to help reinforce front-end and back-end skills",
     type: "MERN training application",
     owner: "Jose Luis Sanchez",
-    create_date: "20/03/2022",
-    start_date: "24/03/2022",
-    end_date: "20/04/2022",
+    create_date: "03/24/2022",
+    start_date: "03/24/2022",
+    end_date: "04/20/2022",
     completed: false,
     resources: [
       {
@@ -145,9 +145,9 @@ export const projects = [
     desc: "Training project for student trainees to help reinforce front-end skills",
     type: "MERN training application",
     owner: "Jose Luis Sanchez",
-    create_date: "15/09/2021",
-    start_date: "15/04/2022",
-    end_date: "25/05/2022",
+    create_date: "09/15/2021",
+    start_date: "04/15/2022",
+    end_date: "05/25/2022",
     completed: false,
     resources: [
       {

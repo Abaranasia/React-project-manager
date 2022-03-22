@@ -4,7 +4,8 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import { Dashboard } from './views/Dashboard/Dashboard';
 import { Project } from './views/ProjectDetail/Project';
 import { ProjectList } from './views/ProjectList/ProjectList';
-import { Resources } from './Resources/Resources';
+import { Resource } from './views/ResourceDetail/Resource';
+import { Resources } from './views/Resources/Resources';
 
 export const Router = () => {
   return (
@@ -14,6 +15,7 @@ export const Router = () => {
       <Route path="/projects" component={ProjectList} exact />
       <Route path="/project" component={Project} exact />
       <Route path="/resources" component={Resources} exact />
+      <Route path="/resource" component={Resource} exact />
       <Redirect from='*' to='/dashboard' />
     </Switch>
   )

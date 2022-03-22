@@ -11,6 +11,7 @@ import {
   TableHead,
   TableRow,
 } from '@mui/material';
+
 import { PageHeader } from '../../ui/PageHeader';
 
 
@@ -19,33 +20,32 @@ const headerStyle = {
   backgroundColor: "#436f83",
   fontWeight: 'bold',
   "& .MuiTableCell-head": { color: "white" }
-}
+};
 
-export function ProjectList() {
-  const [projects, setProjects] = useState([]);
+export const Resources = () => {
 
+  const [resources, setResources] = useState([])
   let history = useHistory();
 
-  const tableHeader = ['name', 'type', 'owner', 'start date', 'end date'];
+  const tableHeader = ['name', 'profile', 'email', 'hiring date'];
 
-  const getPrj = async () => {
-    //const prj = await getProjects()
-    const response = await axios.get('/assets/projects.json')
-    setProjects(response.data)
+  const getResources = async () => {
+    const response = await axios.get('/assets/resources.json')
+    setResources(response.data)
   };
 
   useEffect(() => {
-    getPrj()
+    getResources()
   }, [])
 
   const handleClick = (e, id) => {
     console.log(id);
-    history.push('/project', id);
+    history.push('/resource', id);
   }
 
   return (
-    <>
-      <PageHeader title="List of current projects" />
+    <div>
+      <PageHeader title="Resources" />
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
@@ -58,25 +58,24 @@ export function ProjectList() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {projects.map(prj => {
+            {resources.map(res => {
               return (<TableRow
                 sx={{ cursor: "pointer" }}
-                key={prj.id}
-                id={prj.id}
+                key={res.id}
+                id={res.id}
                 hover
-                onClick={e => handleClick(e, prj.id)}
+                onClick={e => handleClick(e, res.id)}
               >
-                <TableCell>{prj.name}</TableCell>
-                <TableCell>{prj.type}</TableCell>
-                <TableCell>{prj.owner}</TableCell>
-                <TableCell>{prj.start_date}</TableCell>
-                <TableCell>{prj.end_date}</TableCell>
+                <TableCell>{res.name} {res.surname}</TableCell>
+                <TableCell>{res.profile}</TableCell>
+                <TableCell>{res.email}</TableCell>
+                <TableCell>{res.enrol_date}</TableCell>
               </TableRow>)
             })}
 
           </TableBody>
         </Table>
       </TableContainer>
-    </>
+    </div>
   )
 }
