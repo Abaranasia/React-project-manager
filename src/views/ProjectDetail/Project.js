@@ -64,7 +64,8 @@ export function Project({ location }) {
         </Box>
         <Box sx={{ gridArea: 'status', bgcolor: 'error.main' }}>
           <strong>Status: </strong>
-          {(project.completed) ? "finished" : "ongoing"}
+          {/*  {(project.completed) ? "finished" : "ongoing"} */}
+          {project.status}
         </Box>
         <Typography sx={{ gridArea: 'title' }} variant="h6">Asigned resources</Typography>
         <Box sx={{ gridArea: 'res', display: 'flex' }}>

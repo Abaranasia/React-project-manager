@@ -1,13 +1,14 @@
+import React from 'react';
 import {
   Card,
   CardContent,
   Typography,
-} from '@mui/material'
-import React from 'react'
+} from '@mui/material';
 
 export const ResourceCard = ({ resource }) => {
   const { name, tasks } = resource;
-  console.log(name)
+
+  //console.log(name)
   return (
     <Card sx={{ m: 1 }}>
       <CardContent>
@@ -22,5 +23,5 @@ export const ResourceCard = ({ resource }) => {
         }
       </CardContent>
     </Card>
-  )
+  );
 }

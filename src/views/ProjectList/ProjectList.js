@@ -36,7 +36,7 @@ export function ProjectList() {
 
   useEffect(() => {
     getPrj()
-  }, [])
+  }, []);
 
   const handleClick = (e, id) => {
     console.log(id);
