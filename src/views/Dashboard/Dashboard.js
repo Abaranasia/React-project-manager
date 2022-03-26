@@ -8,7 +8,7 @@ import { Box } from '@mui/system';
 
 import { PageHeader } from '../../ui/PageHeader';
 import { ProjectCard } from './ProjectCard/ProjectCard';
-import getProjects from '../../API/projects/projectsAPI';
+import { getProjects } from '../../API/projects/projectsAPI';
 
 
 export const Dashboard = () => {

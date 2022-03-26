@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
-import axios from 'axios';
 
 import {
   Paper,
@@ -12,7 +11,7 @@ import {
   TableRow,
 } from '@mui/material';
 
-import getProjects from '../../API/projects/projectsAPI';
+import { getProjects } from '../../API/projects/projectsAPI';
 import { PageHeader } from '../../ui/PageHeader';
 
 

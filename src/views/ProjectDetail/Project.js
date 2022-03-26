@@ -5,35 +5,23 @@ import {
 } from '@mui/material';
 import { Box } from '@mui/system';
 
-import getProjects from '../../API/projects/projectsAPI';
+import { getOneProject } from '../../API/projects/projectsAPI';
 import { PageHeader } from '../../ui/PageHeader';
 import { ResourceCard } from './components/ResourceCard';
 
 export function Project({ location }) {
-  const [projects, setProjects] = useState([]);
-  const [projectId, setProjectId] = useState(0);
   const [project, setProject] = useState({});
 
-  const getPrj = async () => {
-    const response = await getProjects();
-    if (response) {
-      const { projects } = response.data;
-      setProjects(projects)
-    }
+  const getPrj = async (id) => {
+    const response = await getOneProject(id);
+    if (response.data?.project) {
+      setProject(response.data.project)
+    };
   };
 
   useEffect(() => {
-    location.state && setProjectId(location.state); // sets project Id to search for
-    getPrj();
+    location.state && getPrj(location.state); // sets project Id to search for
   }, []);
-
-  useEffect(() => {
-    if (projects.length > 0) {
-      const filteredPrj = projects.filter(prj => (prj.id === projectId));
-      const [prj] = filteredPrj;
-      setProject(prj);
-    };
-  }, [projects])
 
   return (
     <div>

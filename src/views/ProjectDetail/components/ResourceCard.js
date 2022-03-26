@@ -10,7 +10,7 @@ export const ResourceCard = ({ resource }) => {
 
   //console.log(name)
   return (
-    <Card sx={{ m: 1 }}>
+    <Card sx={{ m: 1, bgcolor: '#E7EBF0' }}>
       <CardContent>
         <Typography sx={{ fontSize: 16 }} color="text.secondary" gutterBottom>
           {name}
