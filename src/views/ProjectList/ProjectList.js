@@ -11,6 +11,8 @@ import {
   TableHead,
   TableRow,
 } from '@mui/material';
+
+import getProjects from '../../API/projects/projectsAPI';
 import { PageHeader } from '../../ui/PageHeader';
 
 
@@ -29,17 +31,18 @@ export function ProjectList() {
   const tableHeader = ['name', 'type', 'owner', 'start date', 'end date'];
 
   const getPrj = async () => {
-    //const prj = await getProjects()
-    const response = await axios.get('/assets/projects.json')
-    setProjects(response.data)
+    const response = await getProjects();
+    if (response) {
+      const { projects } = response.data;
+      setProjects(projects)
+    }
   };
 
   useEffect(() => {
-    getPrj()
+    getPrj();
   }, []);
 
   const handleClick = (e, id) => {
-    console.log(id);
     history.push('/project', id);
   }
 
@@ -58,7 +61,7 @@ export function ProjectList() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {projects.map(prj => {
+            {projects?.map(prj => {
               return (<TableRow
                 sx={{ cursor: "pointer" }}
                 key={prj.id}

@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 
 import {
   Typography
 } from '@mui/material';
 import { Box } from '@mui/system';
-import { ResourceCard } from './components/ResourceCard';
+
+import getProjects from '../../API/projects/projectsAPI';
 import { PageHeader } from '../../ui/PageHeader';
+import { ResourceCard } from './components/ResourceCard';
 
 export function Project({ location }) {
   const [projects, setProjects] = useState([]);
@@ -14,9 +15,11 @@ export function Project({ location }) {
   const [project, setProject] = useState({});
 
   const getPrj = async () => {
-    //const prj = await getProjects()
-    const response = await axios.get('/assets/projects.json')
-    setProjects(response.data)
+    const response = await getProjects();
+    if (response) {
+      const { projects } = response.data;
+      setProjects(projects)
+    }
   };
 
   useEffect(() => {

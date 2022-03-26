@@ -8,15 +8,20 @@ import { Box } from '@mui/system';
 
 import { PageHeader } from '../../ui/PageHeader';
 import { ProjectCard } from './ProjectCard/ProjectCard';
+import getProjects from '../../API/projects/projectsAPI';
 
 
 export const Dashboard = () => {
   const [projects, setProjects] = useState([]);
   const [ongoingProjects, setOngoingProjects] = useState([]);
   const [finishedProjects, setFinishedProjects] = useState([])
+
   const getPrj = async () => {
-    const response = await axios.get('/assets/projects.json')
-    setProjects(response.data)
+    const response = await getProjects();
+    if (response) {
+      const { projects } = response.data;
+      setProjects(projects)
+    }
   };
 
   useEffect(() => {
@@ -54,12 +59,12 @@ export const Dashboard = () => {
         }}
       >
 
+        {/* Ongoing projects */}
         <Box sx={{ gridArea: 'titleO' }}>
           <Typography variant="h5">
             Ongoing projects
           </Typography>
         </Box>
-
         <Box sx={{
           gridArea: 'ongoing',
           display: 'flex',
@@ -67,10 +72,11 @@ export const Dashboard = () => {
           flexFlow: 'row wrap'
         }}>
           {ongoingProjects.map(prj =>
-            <ProjectCard key={prj.id} project={prj} bgcolor="ongoing" />
+            <ProjectCard key={prj.id} project={prj} prjType="ongoing" />
           )}
         </Box>
 
+        {/* Finished projects */}
         <Box sx={{ gridArea: 'titleF' }}>
           <Typography variant="h5">
             Finished projects
@@ -83,7 +89,7 @@ export const Dashboard = () => {
           flexFlow: 'row wrap'
         }}>
           {finishedProjects.map(prj =>
-            <ProjectCard key={prj.id} project={prj} bgcolor="finished" />)}
+            <ProjectCard key={prj.id} project={prj} prjType="finished" />)}
         </Box>
       </Box>
     </div>
