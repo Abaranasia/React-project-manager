@@ -1,38 +1,27 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 
 import {
   Divider,
   Typography
 } from '@mui/material';
 import { Box } from '@mui/system';
+
 import { PageHeader } from '../../ui/PageHeader';
+import { getOneEmployee } from '../../API/resources/resourcesAPI';
 
 export const Resource = ({ location }) => {
-  const [resources, setResources] = useState([]);
-  const [resourceId, setResourceId] = useState(0);
   const [staff, setStaff] = useState({});
 
-  const getResources = async () => {
-    const response = await axios.get('/assets/resources.json')
-    setResources(response.data)
+  const getResource = async (id) => {
+    const response = await getOneEmployee(id);
+    if (response.data?.employee) {
+      setStaff(response.data.employee)
+    };
   };
 
   useEffect(() => {
-    location.state && setResourceId(location.state);
-    getResources()
+    location.state && getResource(location.state);
   }, []);
-
-  useEffect(() => {
-    if (resources.length > 0) {
-      const filteredRes = resources.filter(res => (res.id === resourceId));
-      const [person] = filteredRes;
-      console.log(person);
-      setStaff(person);
-    };
-  }, [resources])
-
-
 
   return (
     <div>
@@ -69,7 +58,7 @@ export const Resource = ({ location }) => {
           <Typography variant="h6">Skills</Typography>
           <ul>
             {staff.skills?.map(skill => {
-              return (<li> {skill}</li>)
+              return (<li key={skill}> {skill}</li>)
             })}
           </ul>
         </Box>
@@ -78,7 +67,7 @@ export const Resource = ({ location }) => {
           <Typography variant="h6">Technologies</Typography>
           <ul>
             {staff.technologies?.map(tech => {
-              return (<li> {tech}</li>)
+              return (<li key={tech}> {tech}</li>)
             })}
           </ul>
         </Box>

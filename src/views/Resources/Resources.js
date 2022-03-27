@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
-import axios from 'axios';
 
 import {
   Paper,
@@ -13,6 +12,7 @@ import {
 } from '@mui/material';
 
 import { PageHeader } from '../../ui/PageHeader';
+import { getEmployees } from '../../API/resources/resourcesAPI';
 
 
 const headerStyle = {
@@ -30,16 +30,19 @@ export const Resources = () => {
   const tableHeader = ['name', 'profile', 'email', 'hiring date'];
 
   const getResources = async () => {
-    const response = await axios.get('/assets/resources.json')
-    setResources(response.data)
+    const response = await getEmployees();
+    if (response) {
+      const { employees } = response.data;
+
+      setResources(employees)
+    }
   };
 
   useEffect(() => {
-    getResources()
+    getResources();
   }, [])
 
   const handleClick = (e, id) => {
-    console.log(id);
     history.push('/resource', id);
   }
 
