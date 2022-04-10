@@ -70,13 +70,14 @@ main {
 
 .list {
   margin-top: 0px;
-  padding: 30px;
+  padding: 20px;
   
   list-style: none;
 }
 
 .list-item{
-  padding: 5px;
+  padding: 10px 5px;
+  padding-bottom: 0px;
   overflow: hidden;
 }
 
@@ -87,6 +88,26 @@ main {
 }
 
 .list-item a:hover {
+  color: orange;
+  border-bottom: 1px solid orange;
+  transition: 0.2s;
+}
+
+.sub-list {
+  padding-left: 15px;
+}
+.sub-item{
+  padding: 2px;
+  overflow: hidden;
+}
+
+.sub-item a {
+  color: white;
+  text-decoration: none;
+  padding-bottom: 3px;
+}
+
+.sub-item a:hover {
   color: orange;
   border-bottom: 1px solid orange;
   transition: 0.2s;

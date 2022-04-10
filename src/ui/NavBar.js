@@ -35,18 +35,26 @@ export default function NavBar() {
         <li className="list-item">
           <NavLink to="/dashboard">Dashboard</NavLink>
         </li>
-        <li className="list-item">
-          <NavLink to="/project/add">Add Project</NavLink>
-        </li>
-        <li className="list-item">
-          <NavLink to="/projects">List Projects</NavLink>
-        </li>
-        <li className="list-item">
-          <NavLink to="/resource/add">Add Resource</NavLink>
-        </li>
-        <li className="list-item">
-          <NavLink to="/resources">List Resources</NavLink>
-        </li>
+
+        <li className="list-item">Projects</li>
+        <ul className="sub-list">
+          <li className="sub-item">
+            <NavLink to="/projects">List Projects</NavLink>
+          </li>
+          <li className="sub-item">
+            <NavLink to="/project/add">Add Project</NavLink>
+          </li>
+        </ul>
+
+        <li className="list-item">Resources</li>
+        <ul className="sub-list">
+          <li className="sub-item">
+            <NavLink to="/resource/add">Add Resource</NavLink>
+          </li>
+          <li className="sub-item">
+            <NavLink to="/resources">List Resources</NavLink>
+          </li>
+        </ul>
       </ul>
     </div>
   )
