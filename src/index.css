@@ -71,14 +71,21 @@ main {
 .list {
   margin-top: 0px;
   padding: 20px;
-  
   list-style: none;
 }
 
 .list-item{
+  padding: 8px 5px;
+  overflow: hidden;
+}
+
+.list-category {
   padding: 10px 5px;
   padding-bottom: 0px;
+  margin-bottom: 4px;
   overflow: hidden;
+  color: #EED;
+  border-bottom: solid #EED 1px;
 }
 
 .list-item a {

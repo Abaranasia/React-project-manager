@@ -36,17 +36,17 @@ export default function NavBar() {
           <NavLink to="/dashboard">Dashboard</NavLink>
         </li>
 
-        <li className="list-item">Projects</li>
+        <li className="list-category">Projects</li>
         <ul className="sub-list">
-          <li className="sub-item">
-            <NavLink to="/projects">List Projects</NavLink>
-          </li>
           <li className="sub-item">
             <NavLink to="/project/add">Add Project</NavLink>
           </li>
+          <li className="sub-item">
+            <NavLink to="/projects">List Projects</NavLink>
+          </li>
         </ul>
 
-        <li className="list-item">Resources</li>
+        <li className="list-category">Resources</li>
         <ul className="sub-list">
           <li className="sub-item">
             <NavLink to="/resource/add">Add Resource</NavLink>
