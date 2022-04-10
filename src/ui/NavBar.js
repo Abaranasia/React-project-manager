@@ -3,6 +3,10 @@ import { NavLink } from 'react-router-dom';
 
 
 export default function NavBar() {
+
+  const handleclick = (e) => {
+    console.log(e.target)
+  }
   return (
     <div className="nav">
       <div className="header">
@@ -29,13 +33,19 @@ export default function NavBar() {
         </li>  */}
 
         <li className="list-item">
-          <NavLink to="dashboard">Dashboard</NavLink>
+          <NavLink to="/dashboard">Dashboard</NavLink>
         </li>
         <li className="list-item">
-          <NavLink to="projects">Projects</NavLink>
+          <NavLink to="/project/add">Add Project</NavLink>
         </li>
         <li className="list-item">
-          <NavLink to="resources">Resources</NavLink>
+          <NavLink to="/projects">List Projects</NavLink>
+        </li>
+        <li className="list-item">
+          <NavLink to="/resource/add">Add Resource</NavLink>
+        </li>
+        <li className="list-item">
+          <NavLink to="/resources">List Resources</NavLink>
         </li>
       </ul>
     </div>

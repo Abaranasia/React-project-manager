@@ -6,6 +6,8 @@ import { Project } from './views/ProjectDetail/Project';
 import { ProjectList } from './views/ProjectList/ProjectList';
 import { Resource } from './views/ResourceDetail/Resource';
 import { Resources } from './views/Resources/Resources';
+import { AddProject } from './views/AddProject/AddProject';
+import { AddResource } from './views/AddResource/AddResource';
 
 export const Router = () => {
   return (
@@ -14,8 +16,10 @@ export const Router = () => {
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/projects" component={ProjectList} exact />
       <Route path="/project" component={Project} exact />
+      <Route path="/project/add" component={AddProject} exact />
       <Route path="/resources" component={Resources} exact />
       <Route path="/resource" component={Resource} exact />
+      <Route path="/resource/add" component={AddResource} exact />
       <Redirect from='*' to='/dashboard' />
     </Switch>
   )
