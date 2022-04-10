@@ -67,7 +67,7 @@ export const Resources = () => {
                 key={res.id}
                 id={res.id}
                 hover
-                onClick={e => handleClick(e, res.id)}
+                onClick={e => handleClick(e, res._id)}
               >
                 <TableCell>{res.name} {res.surname}</TableCell>
                 <TableCell>{res.profile}</TableCell>

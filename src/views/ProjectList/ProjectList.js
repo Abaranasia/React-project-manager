@@ -42,6 +42,7 @@ export function ProjectList() {
   }, []);
 
   const handleClick = (e, id) => {
+    console.log("_id: ", id)
     history.push('/project', id);
   }
 
@@ -66,7 +67,7 @@ export function ProjectList() {
                 key={prj.id}
                 id={prj.id}
                 hover
-                onClick={e => handleClick(e, prj.id)}
+                onClick={e => handleClick(e, prj._id)}
               >
                 <TableCell>{prj.name}</TableCell>
                 <TableCell>{prj.type}</TableCell>
