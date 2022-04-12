@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Button,
   Divider,
@@ -8,9 +8,13 @@ import {
 
 import { useForm } from '../../hooks/useForm'
 import { PageHeader } from '../../ui/PageHeader'
-import { Box } from '@mui/system';
+import { AddSkills } from './components/AddSkills';
 
 export const AddResource = () => {
+
+  const [formData, setFormData] = useState({})
+  const [skills, setSkills] = useState([]);
+  const [technologies, setTechnologies] = useState([]);
 
   const [formValues, handleInputChange] = useForm({
     name: '',
@@ -18,22 +22,33 @@ export const AddResource = () => {
     email: '',
     profile: '',
     enrol_date: '',
-    skills: [],
-    technologies: []
   });
+  const { name, surname, email, profile, enrol_date } = formValues;
 
-  const { name, surname, email, profile, enrol_date, skills, technologies } = formValues;
-
-
+  useEffect(() => {
+    console.log("formData", formData)
+  }, [formData]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formValues)
-  }
+
+    setFormData({
+      ...formData,
+      name,
+      surname,
+      email,
+      profile,
+      enrol_date,
+      skills
+    });
+
+
+  };
 
   return (
     <div>
       <PageHeader title="Add a new resource" />
+
       <form onSubmit={handleSubmit}>
         <FormGroup row>
           <TextField
@@ -80,31 +95,12 @@ export const AddResource = () => {
             onChange={handleInputChange}
             sx={{ m: 1 }}
           />
-
         </FormGroup>
         <FormGroup row>
-          <Box>
-            <TextField
-              label="Skills"
-              name="skills"
-              value={skills}
-              variant="standard"
-              onChange={handleInputChange}
-              sx={{ m: 1 }}
-            />
-          </Box>
-          <Box>
-            <TextField
-              label="Technologies"
-              name="technologies"
-              value={technologies}
-              variant="standard"
-              onChange={handleInputChange}
-              sx={{ m: 1 }}
-            />
-          </Box>
+          <AddSkills skills={skills} setSkills={setSkills} />
+
         </FormGroup>
-        <Button variant="contained">Submit</Button>
+        <Button type="submit" variant="contained">Submit</Button>
       </form>
     </div>
   )
