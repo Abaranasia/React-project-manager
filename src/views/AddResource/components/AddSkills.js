@@ -1,14 +1,12 @@
 import React, { useState } from 'react'
 
 import {
-  Button,
-  FormGroup,
   IconButton,
   Paper,
   TextField,
   List,
   ListItem,
-  Divider,
+  Typography,
 } from '@mui/material';
 
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
@@ -44,9 +42,10 @@ export const AddSkills = ({ skills, setSkills }) => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        width: 400
+        width: '48%'
       }}
     >
+      <Typography variant="h6">Employee skills</Typography>
       <Box>
         <TextField
           label="Skill"

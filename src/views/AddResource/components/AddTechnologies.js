@@ -9,6 +9,7 @@ import {
   List,
   ListItem,
   Divider,
+  Typography,
 } from '@mui/material';
 
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
@@ -35,9 +36,10 @@ export const AddTechnologies = ({ technologies, setTechnologies }) => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        width: 400
+        width: '48%'
       }}
     >
+      <Typography variant="h6">Technology knowledge</Typography>
       <Box>
         <TextField
           label="Technology"

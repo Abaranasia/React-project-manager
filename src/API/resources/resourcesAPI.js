@@ -25,7 +25,19 @@ const getOneEmployee = async (id) => {
   }
 };
 
+const postOneEmployee = async (employeeData) => {
+  try {
+
+    const response = await axios.post(`${employeesAPI}`, employeeData)
+    if (response.status === 200) return response;
+
+  } catch (error) {
+    console.log("ERROR: ", error)
+  }
+};
+
 export {
   getEmployees,
-  getOneEmployee
+  getOneEmployee,
+  postOneEmployee
 };
