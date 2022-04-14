@@ -9,6 +9,7 @@ import {
 import { useForm } from '../../hooks/useForm'
 import { PageHeader } from '../../ui/PageHeader'
 import { AddSkills } from './components/AddSkills';
+import { AddTechnologies } from './components/AddTechnologies';
 
 export const AddResource = () => {
 
@@ -96,8 +97,9 @@ export const AddResource = () => {
             sx={{ m: 1 }}
           />
         </FormGroup>
-        <FormGroup row>
+        <FormGroup row sx={{ m: 1 }}>
           <AddSkills skills={skills} setSkills={setSkills} />
+          <AddTechnologies technologies={technologies} setTechnologies={setTechnologies} />
 
         </FormGroup>
         <Button type="submit" variant="contained">Submit</Button>
