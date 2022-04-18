@@ -10,6 +10,7 @@ import {
   TableHead,
   TableRow,
 } from '@mui/material';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
 import { PageHeader } from '../../ui/PageHeader';
 import { getEmployees } from '../../API/resources/resourcesAPI';
@@ -27,7 +28,7 @@ export const Resources = () => {
   const [resources, setResources] = useState([])
   let history = useHistory();
 
-  const tableHeader = ['name', 'profile', 'email', 'hiring date'];
+  const tableHeader = ['name', 'profile', 'email', 'hiring date', ''];
 
   const getResources = async () => {
     const response = await getEmployees();
@@ -46,6 +47,10 @@ export const Resources = () => {
     history.push('/resource', id);
   }
 
+  const deleteEmployee = (e, id) => {
+    e.stopPropagation();
+    console.log("Deleting... ", id)
+  }
   return (
     <div>
       <PageHeader title="Resources" />
@@ -64,8 +69,8 @@ export const Resources = () => {
             {resources.map(res => {
               return (<TableRow
                 sx={{ cursor: "pointer" }}
-                key={res.id}
-                id={res.id}
+                key={res._id}
+                id={res._id}
                 hover
                 onClick={e => handleClick(e, res._id)}
               >
@@ -73,6 +78,12 @@ export const Resources = () => {
                 <TableCell>{res.profile}</TableCell>
                 <TableCell>{res.email}</TableCell>
                 <TableCell>{res.enrol_date}</TableCell>
+                <TableCell>
+                  <HighlightOffIcon
+                    onClick={e => deleteEmployee(e, res._id)}
+                    sx={{ color: '#CCC', '&:hover': { color: 'red' } }}
+                  />
+                </TableCell>
               </TableRow>)
             })}
 
