@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import {
   Button,
-  Divider,
   FormGroup,
   Paper,
   TextField
@@ -21,12 +20,12 @@ export const AddResource = () => {
 
   const [formValues, handleInputChange] = useForm({
     name: '',
-    surname: '',
+    //surname: '',
     email: '',
     profile: '',
     enrol_date: '',
   });
-  const { name, surname, email, profile, enrol_date } = formValues;
+  const { name, email, profile, enrol_date } = formValues;
 
   const postEmployee = async (employeeData) => { //Send form data to the API
     const response = await postOneEmployee(employeeData);
@@ -47,7 +46,6 @@ export const AddResource = () => {
     setFormData({
       ...formData,
       name,
-      surname,
       email,
       profile,
       enrol_date,
@@ -63,19 +61,39 @@ export const AddResource = () => {
       <PageHeader title="Add a new resource" />
 
       <form onSubmit={handleSubmit} className="add_resource_form">
-        <FormGroup row>
+        <FormGroup row >
           <TextField
-            label="Name"
+            label="Full name"
             name="name"
             value={name}
             variant="standard"
             onChange={handleInputChange}
             sx={{ m: 1 }}
           />
-          <TextField
+          {/*           <TextField
             label="Surname"
             name="surname"
             value={surname}
+            variant="standard"
+            onChange={handleInputChange}
+            sx={{ m: 1 }}
+          /> */}
+          <TextField
+            label="Email"
+            name="email"
+            value={email}
+            variant="standard"
+            onChange={handleInputChange}
+            sx={{ m: 1 }}
+          />
+
+        </FormGroup>
+        <FormGroup row>
+
+          <TextField
+            label="Profile"
+            name="profile"
+            value={profile}
             variant="standard"
             onChange={handleInputChange}
             sx={{ m: 1 }}
@@ -86,24 +104,6 @@ export const AddResource = () => {
             label="Hiring date"
             name="enrol_date"
             value={enrol_date}
-            variant="standard"
-            onChange={handleInputChange}
-            sx={{ m: 1 }}
-          />
-        </FormGroup>
-        <FormGroup>
-          <TextField
-            label="Email"
-            name="email"
-            value={email}
-            variant="standard"
-            onChange={handleInputChange}
-            sx={{ m: 1 }}
-          />
-          <TextField
-            label="Profile"
-            name="profile"
-            value={profile}
             variant="standard"
             onChange={handleInputChange}
             sx={{ m: 1 }}

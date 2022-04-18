@@ -69,7 +69,7 @@ export const Resources = () => {
                 hover
                 onClick={e => handleClick(e, res._id)}
               >
-                <TableCell>{res.name} {res.surname}</TableCell>
+                <TableCell>{res.name}</TableCell>
                 <TableCell>{res.profile}</TableCell>
                 <TableCell>{res.email}</TableCell>
                 <TableCell>{res.enrol_date}</TableCell>
