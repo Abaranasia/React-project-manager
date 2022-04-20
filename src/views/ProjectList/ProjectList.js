@@ -64,8 +64,8 @@ export function ProjectList() {
             {projects?.map(prj => {
               return (<TableRow
                 sx={{ cursor: "pointer" }}
-                key={prj.id}
-                id={prj.id}
+                key={prj._id}
+                id={prj._id}
                 hover
                 onClick={e => handleClick(e, prj._id)}
               >
