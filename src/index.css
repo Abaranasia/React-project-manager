@@ -152,7 +152,6 @@ main {
   flex-flow: row wrap;
   margin: 16px;
   justify-content: space-evenly;
-  
 }
 
 .formRow * {
@@ -160,4 +159,18 @@ main {
   padding: 8px;
   flex-grow: 1;
   max-width: 95%
+}
+
+.formDesc {
+  display:flex;
+  flex-flow: row wrap;
+  margin: 16px;
+  justify-content: space-around;
+}
+
+.formDesc * {
+  margin: 8px;
+  padding: 8px;
+  flex-grow: 1;
+  max-width: 100%
 }
