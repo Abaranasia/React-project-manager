@@ -52,8 +52,6 @@ export const AddResource = () => {
       skills,
       technologies
     });
-
-
   };
 
   return (

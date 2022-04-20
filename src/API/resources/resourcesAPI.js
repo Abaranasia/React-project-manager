@@ -36,8 +36,19 @@ const postOneEmployee = async (employeeData) => {
   }
 };
 
+const deleteOneEmployee = async (id) => {
+  try {
+    const response = await axios.delete(`${employeesAPI}/${id}`)
+    if (response.status === 200) return response;
+
+  } catch (error) {
+    console.log("Error: ", error)
+  }
+}
+
 export {
   getEmployees,
   getOneEmployee,
-  postOneEmployee
+  postOneEmployee,
+  deleteOneEmployee
 };

@@ -18,7 +18,7 @@ import {
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
 import { PageHeader } from '../../ui/PageHeader';
-import { getEmployees } from '../../API/resources/resourcesAPI';
+import { getEmployees, deleteOneEmployee } from '../../API/resources/resourcesAPI';
 
 
 const headerStyle = {
@@ -49,15 +49,19 @@ export const Resources = () => {
     getResources();
   }, []);
 
+
+
   const handleClick = (e, id) => { // Display detailed information of the resource (employee)
     history.push('/resource', id);
   }
 
-  const deleteEmployee = () => {
+  const deleteEmployee = async () => {
     setOpenDialog(false);
     if (resourceToDelete) {
       console.log("Deleting... ", resourceToDelete)
-      // TODO: call to Endpoint for delete
+      const response = await deleteOneEmployee(resourceToDelete);
+      if (response) console.log("response: ", response);
+      getResources(); // Reload resources list
     };
   };
 
@@ -65,8 +69,8 @@ export const Resources = () => {
     e.stopPropagation();
     setOpenDialog(true);
     setResourceToDelete(id);
-
   };
+
   const delDialogClose = () => {
     setOpenDialog(false);
     setResourceToDelete(null);
