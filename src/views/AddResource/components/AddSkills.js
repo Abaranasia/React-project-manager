@@ -38,11 +38,11 @@ export const AddSkills = ({ skills, setSkills }) => {
     <Paper
       label="skills"
       sx={{
-        p: '2px 4px',
+        p: 2,
+        m: 1,
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
-        width: '48%'
+        flexGrow: 1,
       }}
     >
       <Typography variant="h6">Employee skills</Typography>

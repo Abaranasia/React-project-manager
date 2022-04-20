@@ -32,11 +32,12 @@ export const AddTechnologies = ({ technologies, setTechnologies }) => {
     <Paper
       label="Technologies"
       sx={{
-        p: '2px 4px',
+        p: 2,
+        m: 1,
+        mr: 2,
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center',
-        width: '48%'
+        flexGrow: 1,
       }}
     >
       <Typography variant="h6">Technology knowledge</Typography>

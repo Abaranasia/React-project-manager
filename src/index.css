@@ -146,3 +146,18 @@ main {
 .desplegar {
   height: 60px;  
 }
+
+.formRow {
+  display:flex;
+  flex-flow: row wrap;
+  margin: 16px;
+  justify-content: space-evenly;
+  
+}
+
+.formRow * {
+  margin: 8px;
+  padding: 8px;
+  flex-grow: 1;
+  max-width: 95%
+}
