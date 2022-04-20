@@ -33,7 +33,6 @@ export const AddProject = () => {
           value: emp.name,
         }
       }));
-      console.log(ownersList)
       setAvailableOwners(ownersList)
     }
   };
@@ -72,7 +71,6 @@ export const AddProject = () => {
     },
   ];
 
-
   useEffect(() => {
     if (formData) {
       console.log("formData", formData)
@@ -80,7 +78,6 @@ export const AddProject = () => {
       //setFormData(null);
     }
   }, [formData]);
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -93,18 +90,17 @@ export const AddProject = () => {
       create_date,
       start_date,
       end_date,
-      status,
       owner,
+      status,
       //resources
     });
   };
+
   const handleOwnerChange = (e) => {
-    console.log(e.target.value)
     setOwner(e.target.value)
   };
 
   const handleStatusChange = (e) => {
-    console.log(e.target.value)
     setStatus(e.target.value)
   };
 
