@@ -4,12 +4,11 @@ import { useHistory } from "react-router-dom";
 import {
   Button,
   FormGroup,
-  Paper,
   TextField
 } from '@mui/material';
 
-import { useForm } from '../../hooks/useForm'
-import { PageHeader } from '../../ui/PageHeader'
+import { useForm } from '../../hooks/useForm';
+import { PageHeader } from '../../ui/PageHeader';
 import { AddSkills } from './components/AddSkills';
 import { AddTechnologies } from './components/AddTechnologies';
 import { postOneEmployee } from '../../API/resources/resourcesAPI';
@@ -17,7 +16,7 @@ import { postOneEmployee } from '../../API/resources/resourcesAPI';
 export const AddResource = () => {
   let history = useHistory();
 
-  const [formData, setFormData] = useState(null)
+  const [formData, setFormData] = useState(null);
   const [skills, setSkills] = useState([]);
   const [technologies, setTechnologies] = useState([]);
 
@@ -43,7 +42,6 @@ export const AddResource = () => {
     if (formData) {
       postEmployee(formData);
       setFormData(null);
-
     }
   }, [formData]);
 
@@ -66,6 +64,7 @@ export const AddResource = () => {
       <PageHeader title="Add a new resource" />
 
       <form onSubmit={handleSubmit} className="add_resource_form">
+
         <FormGroup row className='formRow'>
           <TextField
             label="Full name"
@@ -81,10 +80,9 @@ export const AddResource = () => {
             variant="standard"
             onChange={handleInputChange}
           />
-
         </FormGroup>
-        <FormGroup row className='formRow'>
 
+        <FormGroup row className='formRow'>
           <TextField
             label="Profile"
             name="profile"
@@ -100,7 +98,6 @@ export const AddResource = () => {
             value={enrol_date}
             variant="standard"
             onChange={handleInputChange}
-
           />
         </FormGroup>
 
@@ -112,8 +109,8 @@ export const AddResource = () => {
             justifyContent: 'space-between',
             alignItems: 'center',
             width: '98%',
-
           }}>
+
           <AddSkills skills={skills} setSkills={setSkills} />
           <AddTechnologies technologies={technologies} setTechnologies={setTechnologies} />
 
