@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 
 import {
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
   Paper,
   Table,
   TableBody,
@@ -24,9 +29,11 @@ const headerStyle = {
 };
 
 export const Resources = () => {
-
-  const [resources, setResources] = useState([])
   let history = useHistory();
+
+  const [resources, setResources] = useState([]);
+  const [openDialog, setOpenDialog] = useState(false);
+  const [resourceToDelete, setResourceToDelete] = useState(null);
 
   const tableHeader = ['name', 'profile', 'email', 'hiring date', ''];
 
@@ -34,23 +41,37 @@ export const Resources = () => {
     const response = await getEmployees();
     if (response) {
       const { employees } = response.data;
-
       setResources(employees)
     }
   };
 
   useEffect(() => {
     getResources();
-  }, [])
+  }, []);
 
-  const handleClick = (e, id) => {
+  const handleClick = (e, id) => { // Display detailed information of the resource (employee)
     history.push('/resource', id);
   }
 
-  const deleteEmployee = (e, id) => {
+  const deleteEmployee = () => {
+    setOpenDialog(false);
+    if (resourceToDelete) {
+      console.log("Deleting... ", resourceToDelete)
+      // TODO: call to Endpoint for delete
+    };
+  };
+
+  const delDialogOpen = (e, id) => {
     e.stopPropagation();
-    console.log("Deleting... ", id)
-  }
+    setOpenDialog(true);
+    setResourceToDelete(id);
+
+  };
+  const delDialogClose = () => {
+    setOpenDialog(false);
+    setResourceToDelete(null);
+  };
+
   return (
     <div>
       <PageHeader title="Resources" />
@@ -80,7 +101,7 @@ export const Resources = () => {
                 <TableCell>{res.enrol_date}</TableCell>
                 <TableCell>
                   <HighlightOffIcon
-                    onClick={e => deleteEmployee(e, res._id)}
+                    onClick={e => delDialogOpen(e, res._id)}
                     sx={{ color: '#CCC', '&:hover': { color: 'red' } }}
                   />
                 </TableCell>
@@ -90,6 +111,21 @@ export const Resources = () => {
           </TableBody>
         </Table>
       </TableContainer>
+      <Dialog
+        open={openDialog}
+        onClose={delDialogClose}
+      >
+        <DialogTitle>
+          Delete resource
+        </DialogTitle>
+        <DialogContent>
+          All the information of this resource will be lost. Are you sure to proceed?
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={delDialogClose}>Disagree</Button>
+          <Button onClick={deleteEmployee} autoFocus>Agree</Button>
+        </DialogActions>
+      </Dialog>
     </div>
   )
 }
