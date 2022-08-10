@@ -1,4 +1,4 @@
-import axios from "axios";
+import { axiosInterceptor } from "../interceptors";
 
 const projectsAPI = process.env.REACT_APP_BACKEND + '/api/projects';
 
@@ -6,7 +6,7 @@ const projectsAPI = process.env.REACT_APP_BACKEND + '/api/projects';
 // Lists all projects
 const getProjects = async () => {
   try {
-    const response = await axios.get(projectsAPI)
+    const response = await axiosInterceptor.get(projectsAPI)
     if (response.status === 200) return response;
 
   } catch (error) {
@@ -17,7 +17,7 @@ const getProjects = async () => {
 // Lists one specific project by id
 const getOneProject = async (id) => {
   try {
-    const response = await axios.get(`${projectsAPI}/${id}`)
+    const response = await axiosInterceptor.get(`${projectsAPI}/${id}`)
     if (response.status === 200) return response;
 
   } catch (error) {
