@@ -72,7 +72,7 @@ export const Dashboard = () => {
           flexFlow: 'row wrap'
         }}>
           {ongoingProjects.map(prj =>
-            <ProjectCard key={prj.id} project={prj} prjType="ongoing" />
+            <ProjectCard key={prj._id} project={prj} prjType="ongoing" />
           )}
         </Box>
 
@@ -89,7 +89,7 @@ export const Dashboard = () => {
           flexFlow: 'row wrap'
         }}>
           {finishedProjects.map(prj =>
-            <ProjectCard key={prj.id} project={prj} prjType="finished" />)}
+            <ProjectCard key={prj._id} project={prj} prjType="finished" />)}
         </Box>
       </Box>
     </div>

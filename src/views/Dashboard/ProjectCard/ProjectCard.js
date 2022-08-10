@@ -13,7 +13,7 @@ import AccountTreeIcon from '@mui/icons-material/AccountTree';
 
 export const ProjectCard = ({ project, prjType }) => {
   let history = useHistory();
-  const { id, name, type, owner, end_date } = project;
+  const { _id, name, type, owner, end_date } = project;
 
   const cardColors = { // TODO: class with gradient bg
     ongoing: "linear-gradient(0deg, rgba(227,253,45,1) 0%, rgba(181,218,75,1) 56%)",
@@ -26,7 +26,7 @@ export const ProjectCard = ({ project, prjType }) => {
 
   return (
     <Card
-      onClick={e => handleClick(e, id)}
+      onClick={e => handleClick(e, _id)}
       sx={{
         m: 1,
         minWidth: '20em',
